@@ -5,7 +5,7 @@ USER root
 SHELL ["/bin/bash", "-c"]
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install basic packages
+# Install basic packages, programming tools, and networking utilities
 RUN apt-get update && \
     apt-get install --yes --no-install-recommends --no-install-suggests \
     curl \
@@ -24,7 +24,23 @@ RUN apt-get update && \
     vim \
     wget \
     ca-certificates \
-    rsync && \
+    rsync \
+    software-properties-common \
+    build-essential \
+    tree \
+    nano \
+    net-tools \
+    iputils-ping \
+    openssh-client \
+    grep \
+    sed \
+    awk \
+    less \
+    more \
+    head \
+    tail \
+    sort \
+    cut && \
 # Install latest Git using their official PPA
     add-apt-repository ppa:git-core/ppa && \
     apt-get install --yes git \
@@ -39,7 +55,6 @@ RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/doc
 # Install Docker
 RUN apt-get update && \
     apt-get install --yes --no-install-recommends --no-install-suggests \
-    build-essential \
     containerd.io \
     docker-ce \
     docker-ce-cli \

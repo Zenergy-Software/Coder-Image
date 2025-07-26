@@ -42,7 +42,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: base/kali-linux.Dockerfile
+          file: base/ubuntu.Dockerfile
           push: true
           tags: ${{ env.REGISTRY }}/${{ steps.string.outputs.lowercase }}:base
           cache-from: type=gha
