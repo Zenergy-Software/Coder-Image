@@ -32,15 +32,7 @@ RUN apt-get update && \
     net-tools \
     iputils-ping \
     openssh-client \
-    grep \
-    sed \
-    awk \
-    less \
-    more \
-    head \
-    tail \
-    sort \
-    cut && \
+    grep && \
 # Install latest Git using their official PPA
     add-apt-repository ppa:git-core/ppa && \
     apt-get install --yes git \
