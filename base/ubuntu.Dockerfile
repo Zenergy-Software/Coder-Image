@@ -5,6 +5,7 @@ USER root
 SHELL ["/bin/bash", "-c"]
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Install the required packages
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     bash \
@@ -19,7 +20,7 @@ RUN apt-get update && \
     locales \
     sudo && \
     rm -rf /var/lib/apt/lists/*
-
+    
 # Generate the desired locale (en_US.UTF-8)
 RUN locale-gen en_US.UTF-8
 
